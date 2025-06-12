@@ -2,11 +2,14 @@ import streamlit as st
 from datetime import datetime
 import os
 
-st.title("Soru Gönderme Uygulaması")
+# Başlık
+st.title("baadira sor")
 
+# Giriş alanları
 isim = st.text_input("İsminizi yazın:")
 soru = st.text_area("Sorunuzu yazın:")
 
+# Gönder butonu
 if st.button("Gönder"):
     if not soru.strip():
         st.warning("Lütfen bir soru yazın.")
@@ -24,9 +27,11 @@ if st.button("Gönder"):
         except Exception as e:
             st.error(f"Hata oluştu: {e}")
 
+# Ayırıcı çizgi ve başlık
 st.markdown("---")
 st.subheader("📋 Sorulan Sorular")
 
+# Soruları göster butonu
 if st.button("Sorulan Soruları Göster"):
     try:
         with open("sorular.txt", "r", encoding="utf-8") as dosya:
